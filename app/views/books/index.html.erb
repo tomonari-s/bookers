@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <body>
-    <p id="notice"></p>
 
 <h1>Books</h1>
 
@@ -11,15 +10,31 @@
       <th>Body</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+  </thead>  
+
+<% @books.each do |book| %>  
   <tbody>
+　　<tr>
+　　   
+  　   <td><%= book.title %></td>
+  　   <td><%= book.body %></td>
+    　 <td><%= link_to "show", book_path(book.id) %></td>
+      <td><%= link_to "edit", edit_book_path(book.id) %></td>
+    　<td><%= link_to "Destroy",book_path(book.id), method: :delete %></td>
+  　</tr>
+  
   </tbody>
+<% end %>
 </table>
 
 
 <h2>New book</h2>
 <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="dlCrOAYTP0RGleSS0JL+ewehA7DqgumHHJyX4EFhVNS6yJIxv2CR5WONpsfpKmCkmiECL6Vro1QnuT9wysU1Hg==">
 <%= form_with model: Book.new do |f| %>
+
+ 
+
+
 
   <div class="field">
     <label for="book_title">Title</label>

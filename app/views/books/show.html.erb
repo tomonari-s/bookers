@@ -1,6 +1,14 @@
 <body>
   
- 
+<div>
+  <%= flash[:notice] %>　
+</div>
+<div>
+  <%= flash[:alret] %>　 
+</div>
+<div>
+  <%= flash[:update] %>
+</div>
 
 <p>
   <strong>Title:</strong>
@@ -11,7 +19,10 @@
   <%= @book.body %>
 </p>
 
-<a class="edit"><%= link_to "edit", edit_book_path(@book.id) %></a>
+<%= link_to "Edit", edit_book_path(@book.id) %>
  |
-<a class="back"><%= link_to "Back", books_path %></a>
+<%= link_to "Back", books_path %>
+
+
+
 </body>
